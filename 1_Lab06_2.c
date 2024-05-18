@@ -1,28 +1,21 @@
 #include <stdio.h>
-#include <string.h>
 
 int main() {
-    char str[100];
-    int alphabet[26], len, index;
+    int divisor = 0;
+    long long max = 0, min = 1000001;
 
-    for (int i = 0; i < 26; i++) {
-        alphabet[i] = -1;
-    }
-    scanf("%s", str);
+    int num;
+    scanf("%d", &num);
 
-    len = strlen(str);
-    for (int i = 0; i < len; i++) {
-        index = str[i] - 'a';
-        if (alphabet[index] == -1) {
-            alphabet[index] = i;
-        }
-        else {
-            continue;
-        }
+    for (int i = 0; i < num; i++) {
+        scanf("%d", &divisor);
+
+        if (divisor > max)
+            max = divisor;
+        if (divisor < min)
+            min = divisor;
     }
-    for (int i = 0; i < 26; i++) {
-        printf("%d\n", alphabet[i]);
-    }
+    printf("%lld\n", max * min);
+
     return 0;
-
 }
